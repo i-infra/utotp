@@ -1,4 +1,4 @@
-MinTOTP
+uTOTP
 =======
 
 uTOTP is a minimal TOTP generator written in Python, targetting MicroPython.
@@ -30,10 +30,8 @@ an authenticator app (e.g., Google Authenticator) on a mobile device.
 The app can then generate TOTP values based on the current time.
 By default, it generates a new TOTP value every 30 seconds.
 
-MinTOTP is a Python tool that can be used to generate TOTP values from a
-secret key. Additionally, it exposes its functionality as module-level
-functions for Python developers. It can be used on any system with
-Python 3.4 or later installed on it.
+uTOTP expose functionality to generate TOTP values for verification or authentication as as module-level
+functions for micropython developers.
 
 
 Source Code
