@@ -50,7 +50,7 @@ these algorithms:
 [RFC 4226]: https://tools.ietf.org/html/rfc4226
 [RFC 6238]: https://tools.ietf.org/html/rfc6238
 
-The source code in [`utotp.py`][src] generates TOTP values from a
+The source code in [`utotp.py`](https://github.com/i-infra/utotp/blob/main/utotp.py) generates TOTP values from a
 secret key and current time. 
 
 The `totp()` function implements the TOTP algorithm. It is a thin
@@ -65,7 +65,7 @@ epoch (1970-01-01 00:00:00 UTC).
 Install
 -------
 
-MinTOTP requires micropython. 
+uTOTP requires Micropython. It can be deployed as a single file with no non-core dependencies, only a `sha1` implementation and `ustruct`. It includes Base32 encoding and decoding and a minimal implementation of SHA1SUM HMAC / HOTP as a building block for the totp() entrypoint.
 
 
 Get Started
@@ -82,8 +82,6 @@ real account (such as an account on a website or an organization) would
 also issue a secret key or a secret QR code to you which you must use to
 generate TOTP values for the purpose of logging into that account.
 
-
-### With Base32 Key
 
 License
 -------
@@ -108,8 +106,5 @@ new issue at <http://github.com/i-infra/utotp/issues>.
 Thanks
 ------
 
-Thanks to [Susam Pal][https://github.com/susam] and [Prateek Nischal][PN] for all the great work!
-[prateeknischal/qry/util/totp.py][PNTOTP] [susam/mintotp/blob/master/mintotp.py][https://github.com/susam/mintotp/blob/master/mintotp.py]
-
-[PN]: https://github.com/prateeknischal
-[PNTOTP]: https://github.com/prateeknischal/qry/blob/master/util/totp.py
+Thanks to [Susam Pal](https://github.com/susam) and [Prateek Nischal](https://github.com/prateeknischal]) for all the great work!
+[prateeknischal/qry/util/totp.py](https://github.com/prateeknischal/qry/blob/master/util/totp.py) [susam/mintotp/blob/master/mintotp.py](https://github.com/susam/mintotp/blob/master/mintotp.py)
