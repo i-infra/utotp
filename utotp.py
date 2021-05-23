@@ -1,6 +1,12 @@
-import ustruct as struct
-from uhashlib import sha1
-import utime
+try:
+    import ustruct as struct
+    from uhashlib import sha1
+    from utime import time
+except ImportError:
+    # not micropython
+    import struct
+    from hashlib import sha1
+    from time import time
 
 
 class Sha1HMAC:
@@ -36,7 +42,7 @@ class Sha1HMAC:
 
 def get_epoch():
     # some micropython implementations use non-standard epochs
-    maybe_time = utime.time()
+    maybe_time = time()
     if maybe_time < 946684801:
         maybe_time += 946684801
     return int(maybe_time)
@@ -54,6 +60,11 @@ def hotp(key, counter, digits=6):
 
 
 def totp(key, time_step=30, digits=6):
+    if isinstance(key,str):
+        try:
+            key = b32decode(key)
+        except:
+            raise ValueError("Key must be b32 string or seed bytes.")
     return hotp(key, get_epoch() // time_step, digits)
 
 
